@@ -9,15 +9,11 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:3000", // Local React for development
-    "https://mern-login-frontend-liart.vercel.app" // <-- Your actual deployed Vercel frontend URL
+    "https://mern-login-frontend-f6xac5k05-shiv-dutt-dwivedis-projects.vercel.app" // <-- Your deployed Vercel frontend URL
   ],
   credentials: true
 };
 app.use(cors(corsOptions));
-// If not deployed yet, you can temporarily use this:
-// app.use(cors({ origin: "*" }));
-
-app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
