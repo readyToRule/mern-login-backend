@@ -5,11 +5,11 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS options: allow both local frontend and deployed frontend (replace with your real URL when deployed)
+// CORS options: allow both local frontend and your deployed Vercel frontend
 const corsOptions = {
   origin: [
-    "http://localhost:3000", // Local React
-    "https://mern-login-frontend.vercel.app" // <--- Replace with your actual deployed frontend URL when you deploy!
+    "http://localhost:3000", // Local React for development
+    "https://mern-login-frontend-liart.vercel.app" // <-- Your actual deployed Vercel frontend URL
   ],
   credentials: true
 };
