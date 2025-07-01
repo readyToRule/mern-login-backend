@@ -15,10 +15,9 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB Connected')).catch(console.error);
+// Body parser middlewares — must be before routes!
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Import routes
 const userRoutes = require('./routes/users');
