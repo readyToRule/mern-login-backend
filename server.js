@@ -8,8 +8,8 @@ const app = express();
 // CORS options: allow both local frontend and your deployed Vercel frontend
 const corsOptions = {
   origin: [
-    "http://localhost:3000", // Local React for development
-    "https://mern-login-frontend-f6xac5k05-shiv-dutt-dwivedis-projects.vercel.app" // <-- Your deployed Vercel frontend URL
+    "http://localhost:3000",
+    "https://mern-login-frontend-liart.vercel.app"
   ],
   credentials: true
 };
