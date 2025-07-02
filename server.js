@@ -5,7 +5,6 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS options: allow both local frontend and your deployed Vercel frontend
 const corsOptions = {
   origin: [
     "http://localhost:3000",
@@ -15,11 +14,17 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Body parser middlewares — must be before routes!
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Import routes
+// Connect to MongoDB!
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 const userRoutes = require('./routes/users');
 app.use('/api/users', userRoutes);
 
